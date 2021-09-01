@@ -20,7 +20,7 @@ pipeline {
     steps {
         sh '''
         cd java-project
-        sh mvn test
+        mvn test
         '''
     }
     }
