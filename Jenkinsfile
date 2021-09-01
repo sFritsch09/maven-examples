@@ -19,7 +19,7 @@ pipeline {
     stage('Testing stage') {
     steps {
         sh '''
-        cd java-project"
+        cd java-project
         sh mvn test
         '''
     }
