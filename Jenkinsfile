@@ -10,6 +10,7 @@ pipeline {
       sh '''
         mvn -version && \
         cd java-web-project && \
+        mvn package && \
         mvn clean compile
         '''
       }
