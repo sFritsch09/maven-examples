@@ -1,6 +1,6 @@
 pipeline:
   agent:
-  any:
+    any:
   stages:
     - stage: 'Compile stage'
       steps:
@@ -10,3 +10,6 @@ pipeline:
     - stage: 'Testing stage'
       steps:
         - sh "mvn test"
+    - stage: 'Final Jenkins YAML Pipeline Stage'
+      steps:
+        - sh "echo 'Jenkins YAML Pipeline Complete'"
