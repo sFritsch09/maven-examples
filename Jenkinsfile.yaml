@@ -1,6 +1,8 @@
 pipeline:
   agent:
     any:
+  tools:
+    maven: default
   stages:
     - stage: 'Compile stage'
       steps:
