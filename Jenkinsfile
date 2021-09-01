@@ -18,12 +18,10 @@ pipeline {
 
     stage('Testing stage') {
     steps {
-        /*sh '''
+      sh '''
         cd java-project
         mvn test
-        '''*/
-        sh 'cd java-project'
-        sh 'mvn test'
+        '''
     }
     }
     stage('Final Jenkins Pipeline Stage') {
