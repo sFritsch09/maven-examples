@@ -7,6 +7,7 @@ pipeline:
     - stage: 'Compile stage'
       steps:
         - sh "mvn -version"
+        - sh "cd java-web-project"
         - sh "mvn clean compile"
 
     - stage: 'Testing stage'
