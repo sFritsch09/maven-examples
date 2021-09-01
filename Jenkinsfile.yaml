@@ -1,12 +1,12 @@
 pipeline:
-    agent:
-    any:
-    stages:
-    - stage: "Compile stage"
-        steps:
+  agent:
+  any:
+  stages:
+    - stage: 'Compile stage'
+      steps:
         - sh "mvn -version"
         - sh "mvn clean compile"
-            
-    - stage: "Testing stage"
-        steps:
+
+    - stage: 'Testing stage'
+      steps:
         - sh "mvn test"
