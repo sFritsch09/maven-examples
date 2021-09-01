@@ -9,7 +9,7 @@ pipeline {
     steps {
       sh '''
         mvn -version && \
-        cd java-web-project && \
+        cd java-project && \
         mvn package && \
         mvn clean compile
         '''
@@ -22,7 +22,7 @@ pipeline {
         sh "mvn test"
     }
     }
-    stage('Final Jenkins YAML Pipeline Stage') {
+    stage('Final Jenkins Pipeline Stage') {
     steps {
 
       sh "echo 'Jenkins Pipeline Complete'"
