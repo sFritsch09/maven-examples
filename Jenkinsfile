@@ -8,9 +8,9 @@ pipeline {
     stage('Compile stage') {
     steps {
       sh '''
-        mvn -version && \
-        cd java-project && \
-        mvn package && \
+        mvn -version
+        cd java-project
+        mvn package
         mvn clean compile
         '''
       }
@@ -18,7 +18,7 @@ pipeline {
 
     stage('Testing stage') {
     steps {
-
+        sh "cd java-project"
         sh "mvn test"
     }
     }
