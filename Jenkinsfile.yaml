@@ -7,6 +7,7 @@ pipeline:
     - stage: 'Compile stage'
       steps:
         - sh "mvn -version"
+        - git 'https://github.com/sFritsch09/maven-examples.git'
         - sh "cd java-web-project"
         - sh "mvn clean compile"
 
