@@ -22,7 +22,8 @@ pipeline {
         cd java-project
         mvn test
         '''
-    }
+      junit '**/test-results/test/*.xml'
+      }
     }
     stage('Final Jenkins Pipeline Stage') {
     steps {
@@ -31,9 +32,4 @@ pipeline {
       }
     }
   }
-  post {
-        always {
-            junit 'build/reports/**/*.xml'
-        }
-    }
 }
