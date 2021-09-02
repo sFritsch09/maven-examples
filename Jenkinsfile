@@ -33,7 +33,7 @@ pipeline {
   }
   post{
     always{
-      junit 'test-results.xml'
+      junit 'target/surefire-reports/*.xml'
 
     }
   }
