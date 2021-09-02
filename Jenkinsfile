@@ -41,7 +41,7 @@ pipeline {
                         passwordVariable: 'AZURE_CLIENT_SECRET', 
                         usernameVariable: 'AZURE_CLIENT_ID')]) {
           sh '''
-            source $ZSH/oh-my-zsh.sh
+            source /Users/djsicrip/.oh-my-zsh/oh-my-zsh.sh
             echo $container_name
             # Login to Azure with ServicePrincipal
             az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID
