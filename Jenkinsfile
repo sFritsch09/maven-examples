@@ -32,14 +32,11 @@ pipeline {
       steps {
 
       sh "echo 'Jenkins Pipeline Complete'"
+      junit "java-project/target/surefire-reports/*.xml"
       }
     }
   }
-  post {
-    always {
-      junit "java-project/target/surefire-reports/*.xml"
-    }
-  }
+  
   post {
     success {
       withCredentials([usernamePassword(credentialsId: 'azuresp', 
