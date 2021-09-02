@@ -22,7 +22,6 @@ pipeline {
         cd java-project
         mvn test
         '''
-      junit '**/test-results/test/*.xml'
       }
     }
     stage('Final Jenkins Pipeline Stage') {
@@ -30,6 +29,12 @@ pipeline {
 
       sh "echo 'Jenkins Pipeline Complete'"
       }
+    }
+  }
+  post{
+    always{
+      junit allowEmptyResults: true, testResults: '**/test-results/test/*.xml'
+
     }
   }
 }
