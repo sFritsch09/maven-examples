@@ -35,10 +35,7 @@ pipeline {
       junit "java-project/target/surefire-reports/*.xml"
       }
     }
-  }
-  
-  post {
-    success {
+    stage('Pushing to Azure Storage'){
       withCredentials([usernamePassword(credentialsId: 'azuresp', 
                       passwordVariable: 'AZURE_CLIENT_SECRET', 
                       usernameVariable: 'AZURE_CLIENT_ID')]) {
