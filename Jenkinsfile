@@ -13,7 +13,6 @@ pipeline {
   //   } 
 
   stages {
-  withEnv(['PATH=/usr/local/Cellar/maven/3.8.2/libexec']){
     stage('Compile stage') {
       steps {
       sh '''
@@ -66,6 +65,5 @@ pipeline {
         }
       }
     }
-  }
   }
 }
