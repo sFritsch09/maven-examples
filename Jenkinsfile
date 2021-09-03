@@ -41,7 +41,7 @@ pipeline {
                         usernameVariable: 'AZURE_CLIENT_ID')]) {
           sh '''
             echo $container_name
-            azureCLI commands: [[script: 'az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID']]
+            azureCLI commands: [[exportVariablesString: '', script: 'az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID']], principalCredentialId: 'azuresp'
             # Login to Azure with ServicePrincipal
             #az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID
             # Set default subscription
