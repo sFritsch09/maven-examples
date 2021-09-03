@@ -5,6 +5,8 @@ pipeline {
     AZURE_TENANT_ID='d79e9c22-774d-4682-8659-0c60a819d63e'
     AZURE_STORAGE_ACCOUNT='jenkins1maven'
     MAVEN_HOME='/usr/local/Cellar/maven/3.8.2/libexec'
+    AZURE='/usr/local/Cellar/azure-cli/2.27.2/libexec/bin/python'
+    BREW='/usr/local/homebrew/bin'
   }
   // tools { 
   //     maven 'Maven' 
@@ -15,11 +17,7 @@ pipeline {
     stage('Compile stage') {
       steps {
       sh '''
-        #export AZURE=/usr/local/Cellar/azure-cli/2.27.2/libexec/bin/python
-        #export MAVEN_HOME=/usr/local/Cellar/maven/3.8.2/libexec
-        #export BREW=/usr/local/homebrew/bin
-        #export PATH=$HOME/bin:/usr/local/bin:$PATH:$MAVEN_HOME:$BREW:$AZURE
-        #!/bin/bash -l
+        PATH=$HOME/bin:/usr/local/bin:$PATH:$MAVEN_HOME:$BREW:$AZURE
         echo $PATH
         cd java-project
         mvn package
