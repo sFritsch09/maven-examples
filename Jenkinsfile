@@ -12,6 +12,7 @@ pipeline {
     stage('Compile stage') {
       steps {
       sh '''
+        echo $PATH
         cd java-project
         mvn package
         mvn clean compile
