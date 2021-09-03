@@ -27,6 +27,10 @@ pipeline {
     stage('Testing stage') {
       steps {
       sh '''
+        export AZURE=/usr/local/Cellar/azure-cli/2.27.2/libexec/bin/python
+        export MAVEN_HOME=/usr/local/Cellar/maven/3.8.2/libexec
+        export BREW=/usr/local/homebrew/bin
+        export PATH=$HOME/bin:/usr/local/bin:$PATH:$MAVEN_HOME:$BREW:$AZURE
         cd java-project
         mvn test
         '''
