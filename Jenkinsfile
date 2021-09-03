@@ -4,6 +4,7 @@ pipeline {
     AZURE_SUBSCRIPTION_ID='c38016af-1cf5-46d4-8828-95ea34bf0348'
     AZURE_TENANT_ID='d79e9c22-774d-4682-8659-0c60a819d63e'
     AZURE_STORAGE_ACCOUNT='jenkins1maven'
+    MAVEN_HOME='/usr/local/Cellar/maven/3.8.2/libexec'
   }
   // tools { 
   //     maven 'Maven' 
