@@ -5,9 +5,9 @@ pipeline {
     AZURE_TENANT_ID='d79e9c22-774d-4682-8659-0c60a819d63e'
     AZURE_STORAGE_ACCOUNT='jenkins1maven'
   }
-  tools { 
-      maven 'Maven' 
-    } 
+  // tools { 
+  //     maven 'Maven' 
+  //   } 
   stages {
     stage('Compile stage') {
       steps {
