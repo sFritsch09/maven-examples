@@ -12,7 +12,7 @@ pipeline {
     stage('Compile stage') {
       steps {
       sh '''
-        PATH="/usr/local/bin:${PATH}"
+        source ~/.zshrc
         echo $PATH
         cd java-project
         mvn package
