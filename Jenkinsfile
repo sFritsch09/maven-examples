@@ -12,6 +12,7 @@ pipeline {
     stage('Compile stage') {
       steps {
       sh '''
+        PATH="/usr/local/bin:${PATH}"
         echo $PATH
         cd java-project
         mvn package
