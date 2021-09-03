@@ -36,11 +36,10 @@ pipeline {
     }
     stage('Pushing to Azure Storage'){
       steps {
+        azureCLI commands: [[exportVariablesString: '', script: 'az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID']], principalCredentialId: 'azuresp'
         withCredentials([usernamePassword(credentialsId: 'azuresp', 
                         passwordVariable: 'AZURE_CLIENT_SECRET', 
                         usernameVariable: 'AZURE_CLIENT_ID')]) {
-        azCommands('azuresp', 
-                    ['az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID'])
           sh '''
             echo $container_name
             # Login to Azure with ServicePrincipal
