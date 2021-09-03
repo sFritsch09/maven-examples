@@ -36,7 +36,7 @@ pipeline {
     }
     stage('Pushing to Azure Storage'){
       steps {
-        azureCLI commands: [[script: 'az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID'],
+        azureCLI commands: [[exportVariablesString: '', script: 'az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID'],
          [ script: 'az account set --subscription $AZURE_SUBSCRIPTION_ID' ],
          [script: 'az storage container create --account-name $AZURE_STORAGE_ACCOUNT --name $JOB_NAME --auth-mode login'],
          [script: 'az storage blob upload-batch --destination ${JOB_NAME} --source java-project/target/surefire-reports --account-name $AZURE_STORAGE_ACCOUNT'],
