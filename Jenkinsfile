@@ -12,7 +12,7 @@ pipeline {
     stage('Compile stage') {
       steps {
       sh '''
-        source ~/.zshrc
+        PATH=/usr/local/Cellar/maven/3.8.2/libexec
         echo $PATH
         cd java-project
         mvn package
