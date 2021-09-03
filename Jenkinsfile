@@ -12,10 +12,10 @@ pipeline {
     stage('Compile stage') {
       steps {
       sh '''
-        export AZURE=/usr/local/Cellar/azure-cli/2.27.2/libexec/bin/python
-        export MAVEN_HOME=/usr/local/Cellar/maven/3.8.2/libexec
-        export BREW=/usr/local/homebrew/bin
-        export PATH=$HOME/bin:/usr/local/bin:$PATH:$MAVEN_HOME:$BREW:$AZURE
+        #export AZURE=/usr/local/Cellar/azure-cli/2.27.2/libexec/bin/python
+        #export MAVEN_HOME=/usr/local/Cellar/maven/3.8.2/libexec
+        #export BREW=/usr/local/homebrew/bin
+        #export PATH=$HOME/bin:/usr/local/bin:$PATH:$MAVEN_HOME:$BREW:$AZURE
         echo $PATH
         cd java-project
         mvn package
@@ -27,10 +27,6 @@ pipeline {
     stage('Testing stage') {
       steps {
       sh '''
-        export AZURE=/usr/local/Cellar/azure-cli/2.27.2/libexec/bin/python
-        export MAVEN_HOME=/usr/local/Cellar/maven/3.8.2/libexec
-        export BREW=/usr/local/homebrew/bin
-        export PATH=$HOME/bin:/usr/local/bin:$PATH:$MAVEN_HOME:$BREW:$AZURE
         cd java-project
         mvn test
         '''
@@ -54,10 +50,6 @@ pipeline {
                         passwordVariable: 'AZURE_CLIENT_SECRET', 
                         usernameVariable: 'AZURE_CLIENT_ID')]) {
           sh '''
-            export AZURE=/usr/local/Cellar/azure-cli/2.27.2/libexec/bin/python
-        export MAVEN_HOME=/usr/local/Cellar/maven/3.8.2/libexec
-        export BREW=/usr/local/homebrew/bin
-        export PATH=$HOME/bin:/usr/local/bin:$PATH:$MAVEN_HOME:$BREW:$AZURE
             echo $container_name
             # Login to Azure with ServicePrincipal
             az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID
