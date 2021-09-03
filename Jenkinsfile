@@ -28,6 +28,7 @@ pipeline {
     stage('Testing stage') {
       steps {
       sh '''
+        PATH=$HOME/bin:/usr/local/bin:$PATH:$MAVEN_HOME:$BREW:$AZURE
         cd java-project
         mvn test
         '''
@@ -51,6 +52,7 @@ pipeline {
                         passwordVariable: 'AZURE_CLIENT_SECRET', 
                         usernameVariable: 'AZURE_CLIENT_ID')]) {
           sh '''
+            PATH=$HOME/bin:/usr/local/bin:$PATH:$MAVEN_HOME:$BREW:$AZURE
             echo $container_name
             # Login to Azure with ServicePrincipal
             az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID
