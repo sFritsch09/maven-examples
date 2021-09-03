@@ -9,6 +9,8 @@ pipeline {
   // tools { 
   //     maven 'Maven' 
   //   } 
+  withEnv(['PATH=/usr/local/Cellar/maven/3.8.2/libexec']){
+
   stages {
     stage('Compile stage') {
       steps {
@@ -66,5 +68,6 @@ pipeline {
         }
       }
     }
+  }
   }
 }
