@@ -51,6 +51,7 @@ pipeline {
             # Execute upload to Azure
             az storage container create --account-name $AZURE_STORAGE_ACCOUNT --name $JOB_NAME --auth-mode login
             az storage blob upload-batch --destination ${JOB_NAME} --source java-project/target/surefire-reports --account-name $AZURE_STORAGE_ACCOUNT
+            az storage blob upload-batch --destination ${JOB_NAME} --source java-project/target/ --account-name $AZURE_STORAGE_ACCOUNT
             # Logout from Azure
             az logout
           '''
